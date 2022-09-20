@@ -26,7 +26,7 @@ brew install boost
 
 After downloading the precompiled binary, unzip the executable on your machine and start it.
 
-# Build TuringX Wallet from Source:
+## Build TuringX Wallet from source:
 
 Alternatively, you can build your binaries from source:
 
