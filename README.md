@@ -4,7 +4,7 @@
 
 With the TuringX Wallet App users can use the TuringX wallet functionality to create wallets, send and receive TRGX and manage transactions and recipients. Download the version matching your operating system:
 
-Mirosoft Windows: coming soon (build from source is possible)
+Mirosoft Windows: coming soon (you need to build the binary from source as described below)
 
 Apple MacOS: https://github.com/TuringXplatform/TuringX-Wallet-App/raw/main/MacOS_M1_walletapp.zip
 
