@@ -1,9 +1,8 @@
 # TuringX-Wallet-App
-With the TuringX Wallet App users can use the TuringX wallet functionality to create wallets, send and receive TRGX and manage transactions and recipients. 
 
 ![TuringX-Wallet-App](https://github.com/TuringXplatform/TuringX-Wallet-App/blob/main/wallet-app-screen.jpg "TuringX Wallet App")
 
-Download the version matching your operating system:
+With the TuringX Wallet App users can use the TuringX wallet functionality to create wallets, send and receive TRGX and manage transactions and recipients. Download the version matching your operating system:
 
 Mirosoft Windows: coming soon
 
