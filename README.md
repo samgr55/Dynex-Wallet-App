@@ -1,8 +1,6 @@
-# TuringX Wallet Application
+# Dynex Wallet Application
 
-![TuringX-Wallet-App](https://github.com/TuringXplatform/TuringX-Wallet-App/blob/main/wallet-app-screen.jpg "TuringX Wallet App")
-
-With the TuringX Wallet App users can use the TuringX wallet functionality to create wallets, send and receive TRGX and manage transactions and recipients. Download the version matching your operating system:
+With the Dynex Wallet App users can use the Dynex wallet functionality to create wallets, send and receive TRGX and manage transactions and recipients. Download the version matching your operating system:
 
 Mirosoft Windows: coming soon (you need to build the binary from source as described below)
 
@@ -26,7 +24,7 @@ brew install boost
 
 After downloading the precompiled binary, unzip the executable on your machine and start it.
 
-## Build TuringX Wallet from source:
+## Build Dynex Wallet from source:
 
 Alternatively, you can build your binaries from source:
 
