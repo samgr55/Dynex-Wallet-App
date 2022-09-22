@@ -4,9 +4,9 @@ With the Dynex Wallet App users can use the Dynex wallet functionality to create
 
 Mirosoft Windows: coming soon (you need to build the binary from source as described below)
 
-Apple MacOS: https://github.com/TuringXplatform/TuringX-Wallet-App/raw/main/MacOS_M1_walletapp.zip
+Apple MacOS: coming soon (you need to build the binary from source as described below)
 
-Linux: https://github.com/TuringXplatform/TuringX-Wallet-App/raw/main/Ubuntu_22.04.1_walletapp.tar.xz
+Linux: https://github.com/dynexcoin/Dynex-Wallet-App/raw/main/Ubuntu_22.04.1_walletapp.tar.xz
 
 Please note that Linux and MacOS users are required to have the [Boost library](https://www.boost.org) (Version 1.74.0 or better) installed: 
 
