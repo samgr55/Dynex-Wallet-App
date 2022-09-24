@@ -6,7 +6,7 @@ With the Dynex Wallet App users can use the Dynex wallet functionality to create
 
 Mirosoft Windows: coming soon (you need to build the binary from source as described below)
 
-Apple MacOS: coming soon (you need to build the binary from source as described below)
+Apple MacOS: https://github.com/dynexcoin/Dynex-Wallet-App/raw/main/MacOS_walletapp.zip
 
 Linux: https://github.com/dynexcoin/Dynex-Wallet-App/raw/main/Ubuntu_22.04.1_walletapp.tar.xz
 
