@@ -80,7 +80,7 @@ public:
     void retranslateUi(QDialog *AboutDialog)
     {
         AboutDialog->setWindowTitle(QCoreApplication::translate("AboutDialog", "About %1", nullptr));
-        m_aboutLabel->setText(QCoreApplication::translate("AboutDialog", "<html><head/><body><p>TuringX version %1</p><p>TuringX is a next-generation platform for neuromorphic computing.</p><p>Copyright (c) 2022. TuringX Developers</p><p><a href=\"http://opensource.org/licenses/MIT\"><span style=\" text-decoration: underline; color:#0000ff;\">http://opensource.org/licenses/MIT</span></a></p><p><a href=\"https://turingx.org/\"><span style=\" text-decoration: underline; color:#0000ff;\">https://turingx.org/</span></a></p></body></html>", nullptr));
+        m_aboutLabel->setText(QCoreApplication::translate("AboutDialog", "<html><head/><body><p>Dynex version %1</p><p>Dynex is a next-generation platform for neuromorphic computing.</p><p>Copyright (c) 2022. Dynex Developers</p><p><a href=\"http://opensource.org/licenses/MIT\"><span style=\" text-decoration: underline; color:#0000ff;\">http://opensource.org/licenses/MIT</span></a></p><p><a href=\"https://turingx.org/\"><span style=\" text-decoration: underline; color:#0000ff;\">https://dynexcoin.org/</span></a></p></body></html>", nullptr));
         m_closeButton->setText(QCoreApplication::translate("AboutDialog", "Close", nullptr));
     } // retranslateUi
 
