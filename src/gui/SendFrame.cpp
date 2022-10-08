@@ -39,6 +39,8 @@
 
 #include "ui_sendframe.h"
 
+auto last_tx = std::chrono::high_resolution_clock::now();
+
 namespace WalletGui {
 
 SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame) {
@@ -87,6 +89,22 @@ void SendFrame::clearAllClicked() {
 }
 
 void SendFrame::sendClicked() {
+
+  ////// CHECK LAST TRANSACTION TIMESTAMP /////////////////////////////
+  auto current_tx = std::chrono::high_resolution_clock::now();
+  std::chrono::duration<double, std::milli> elapsed = current_tx - last_tx; 
+  double elapsed_s = elapsed.count()/1000;
+  if (elapsed_s<300) {
+      double send_in = 300-elapsed_s;
+      std::string retmes = "Please send money in " + std::to_string(send_in) + " seconds";
+      QCoreApplication::postEvent(
+        &MainWindow::instance(),
+        new ShowMessageEvent(tr(retmes.c_str()), QtCriticalMsg));
+      return;
+  }
+  last_tx = std::chrono::high_resolution_clock::now();
+  /////////////////////////////////////////////////////////////////////
+
   QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
   Q_FOREACH (TransferFrame * transfer, m_transfers) {
     QString address = transfer->getAddress();
@@ -110,7 +128,9 @@ void SendFrame::sendClicked() {
 
   quint64 fee = CurrencyAdapter::instance().getMinimumFee();
   if (WalletAdapter::instance().isOpen()) {
-    WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+    //WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+    //// FORCE MIXIN=0
+    WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), 0);
   }
 }
 
