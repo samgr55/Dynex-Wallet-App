@@ -14,6 +14,14 @@ make sure that you have CMake, g++, gcc, libboost-all-dev
 ```
 git clone https://github.com/dynexcoin/Dynex.git
 ```
+
+### Set Symbolic Link
+
+Set symbolic link to coin sources at the same level as src:
+```
+ln -s ../dynex cryptonote
+```
+
 ### Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
