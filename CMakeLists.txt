@@ -17,10 +17,10 @@ include_directories(${CMAKE_BINARY_DIR}
     cryptonote/include
     cryptonote/src)
 
-find_package(Qt5Gui 5.15.5 EXACT REQUIRED PATHS "/usr/local/homebrew/opt/qt@5/" NO_DEFAULT_PATH) # force x86 version on M1
-find_package(Qt5Widgets 5.15.5 EXACT REQUIRED PATHS "/usr/local/homebrew/opt/qt@5/" NO_DEFAULT_PATH) # force x86 version on M1
-#include_directories("/usr/local/homebrew/opt/qt@5/include")
-#link_directories("/usr/local/homebrew/opt/qt@5/lib")
+find_package(Qt5Gui 5.15.8 EXACT REQUIRED PATHS "/home/linuxbrew/.linuxbrew/opt/qt@5/" NO_DEFAULT_PATH) # force x86 version on M1
+find_package(Qt5Widgets 5.15.8 EXACT REQUIRED PATHS "/home/linuxbrew/.linuxbrew/opt/qt@5/" NO_DEFAULT_PATH) # force x86 version on M1
+#include_directories("/home/linuxbrew/.linuxbrew/opt/qt@5/include")
+#link_directories("/home/linuxbrew/.linuxbrew/opt/qt@5/lib")
 
 
 find_package(Boost REQUIRED)
@@ -38,8 +38,8 @@ endif(WIN32)
 # note: we need to add boost package finding here!!!!
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
-#include_directories("/usr/local/homebrew/cellar/boost/1.79.0_2/include")
-#link_directories("/usr/local/homebrew/cellar/boost/1.79.0_2/lib")
+#include_directories("/home/linuxbrew/.linuxbrew/Cellar/boost/1.81.0_1/include")
+#link_directories("/home/linuxbrew/.linuxbrew/Cellar/boost/1.81.0_1/lib")
 
 
 set(VERSION "")
@@ -216,7 +216,7 @@ elseif (UNIX)
 
     include_directories(/usr/include/malloc)
 
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11 -stdlib=libc++ -lboost_program_options -lboost_filesystem -L /usr/local/homebrew/cellar/boost/1.79.0_2/include -L /usr/local/homebrew/cellar/boost/1.79.0_2/lib")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11 -stdlib=libc++ -lboost_program_options -lboost_filesystem -L /home/linuxbrew/.linuxbrew/Cellar/boost/1.81.0_1/include -L /home/linuxbrew/.linuxbrew/Cellar/boost/1.81.0_1/lib")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -maes -D_DARWIN_C_SOURCE ")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework Cocoa -framework OpenGL -framework CoreFoundation -framework Carbon -framework IOKit")
 
@@ -232,7 +232,7 @@ elseif (UNIX)
   else(APPLE)
     set(PLATFORM_DIR Linux)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11 ")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11 ") #-L/usr/local/homebrew/opt/qt@5/lib -I/usr/local/homebrew/opt/qt@5/include
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11 ") #-L/home/linuxbrew/.linuxbrew/opt/qt@5/lib -I/home/linuxbrew/.linuxbrew/opt/qt@5/include
   endif (APPLE)
 endif ()
 
