@@ -28,6 +28,7 @@
 // 
 // Parts of this file are originally copyright (c) 2012-2016 The Cryptonote developers
 
+#include <limits>
 #include "CryptoNoteWrapper.h"
 #include "CryptoNoteCore/CryptoNoteBasicImpl.h"
 #include "CryptoNoteCore/CryptoNoteFormatUtils.h"
@@ -42,6 +43,7 @@
 #include "WalletLegacy/WalletLegacy.h"
 #include "Logging/LoggerManager.h"
 #include "System/Dispatcher.h"
+#include "CheckpointsData.h"
 
 namespace WalletGui {
 
@@ -108,9 +110,11 @@ Node::~Node() {
 
 class RpcNode : CryptoNote::INodeObserver, public Node {
 public:
-  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort) :
+  Logging::LoggerManager& m_logManager;
+  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort) :
     m_callback(callback),
     m_currency(currency),
+    m_logManager(logManager),
     m_node(nodeHost, nodePort) {
     m_node.addObserver(this);
   }
@@ -150,7 +154,7 @@ public:
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
-    return new CryptoNote::WalletLegacy(m_currency, m_node);
+    return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
 
 private:
@@ -173,20 +177,23 @@ private:
 
 class InprocessNode : CryptoNote::INodeObserver, public Node {
 public:
+  Logging::LoggerManager& m_logManager;
   InprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager, const CryptoNote::CoreConfig& coreConfig,
     const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) :
     m_currency(currency), m_dispatcher(),
     m_callback(callback),
     m_coreConfig(coreConfig),
+    m_logManager(logManager),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
-    m_core(currency, &m_protocolHandler, logManager),
+    m_core(currency, &m_protocolHandler, logManager, true),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
     m_node(m_core, m_protocolHandler) {
 
     m_core.set_cryptonote_protocol(&m_protocolHandler);
     m_protocolHandler.set_p2p_endpoint(&m_nodeServer);
     CryptoNote::Checkpoints checkpoints(logManager);
+    checkpoints.load_checkpoints_from_dns(); // nevermind, this will return always true, function is noted anyway
     for (const CryptoNote::CheckpointData& checkpoint : CryptoNote::CHECKPOINTS) {
       checkpoints.add_checkpoint(checkpoint.height, checkpoint.blockId);
     }
@@ -251,7 +258,7 @@ public:
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
-    return new CryptoNote::WalletLegacy(m_currency, m_node);
+    return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
 
 private:
@@ -279,8 +286,8 @@ private:
   }
 };
 
-Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort) {
-  return new RpcNode(currency, callback, nodeHost, nodePort);
+Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort) {
+  return new RpcNode(currency, callback, logManager,nodeHost, nodePort);
 }
 
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
