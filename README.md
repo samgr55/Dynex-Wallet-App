@@ -12,8 +12,16 @@ make sure that you have CMake, g++, gcc, libboost-all-dev
 
 ### To build it from the source you need to clone at first Cryptonote repo and have it ready for the building,
 ```
-git clone https://github.com/cryptonotefoundation/cryptonote
+git clone https://github.com/dynexcoin/Dynex.git
 ```
+
+### Set Symbolic Link
+
+Set symbolic link to coin sources at the same level as src:
+```
+ln -s ../dynex cryptonote
+```
+
 ### Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
