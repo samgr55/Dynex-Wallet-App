@@ -6,17 +6,19 @@ With the Dynex Wallet App users can use the Dynex wallet functionality to create
 
 ## Build Dynex Wallet from source:
 
-### Install prerequisites
+### Requirements
 
 make sure that you have boost, Qt5.15 and libcurl installed on your operating system. To build from source:
+
+### Build
 
 ```
 mkdir build && cd build && cmake .. && make
 ```
 
-The wallet can be run with
+The wallet can be started with
 
 ```
 cd /build/src/WalletGui/
 ./dynexwallet
-``
+```
