@@ -10,6 +10,12 @@ With the Dynex Wallet App users can use the Dynex wallet functionality to create
 
 make sure that you have boost, Qt5.15 and libcurl installed on your operating system. 
 
+```
+sudo apt-get install libboost-all-dev 
+sudo apt-get install libcurl-dev
+sudo apt install qtcreator qtbase5-dev qt5-qmake cmake
+```
+
 ### Build
 
 ```
