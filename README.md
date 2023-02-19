@@ -1,4 +1,4 @@
-# Dynex Wallet Application
+# Dynex GUI Wallet
 
 ![Dynex Wallet](https://github.com/dynexcoin/Dynex-Wallet-App/raw/main/dynexwallet.png)
 
