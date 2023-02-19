@@ -8,7 +8,7 @@ With the Dynex Wallet App users can use the Dynex wallet functionality to create
 
 ### Requirements
 
-make sure that you have boost, Qt5.15 and libcurl installed on your operating system. To build from source:
+make sure that you have boost, Qt5.15 and libcurl installed on your operating system. 
 
 ### Build
 
