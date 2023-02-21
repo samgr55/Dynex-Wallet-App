@@ -83,7 +83,7 @@ std::string parseCommand(const std::vector<T> &printableCommands,
             size_t numCommands = availableCommands.size();
 
             /* Must be in the bounds of the vector */
-            if (selectionNum < 0 || selectionNum >= numCommands)
+            if (selectionNum >= numCommands)
             {
                 std::cout << WarningMsg("Bad input, expected a command name, ")
                           << WarningMsg("or number from ")

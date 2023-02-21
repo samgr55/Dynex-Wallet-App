@@ -42,7 +42,7 @@
 #include <boost/algorithm/string.hpp>
 #include <thread>
 
-#include "linenoise.hpp"
+#include "linenoise/linenoise.hpp"
 
 #include <GreenWallet/Sync.h>
 
