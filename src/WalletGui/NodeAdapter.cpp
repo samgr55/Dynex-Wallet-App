@@ -285,7 +285,7 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
 
   options.insert(std::make_pair("hide-my-port", boost::program_options::variable_value(hideMyPort, false)));
   options.insert(std::make_pair("data-dir", boost::program_options::variable_value(dataDir, false)));
-  int size = options.size();
+  //int size = options.size();
   config.init(options);
   config.setTestnet(Settings::instance().isTestnet());
   return config;

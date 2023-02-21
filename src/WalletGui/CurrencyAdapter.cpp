@@ -50,7 +50,7 @@ const CryptoNote::Currency& CurrencyAdapter::getCurrency() {
 }
 
 int CurrencyAdapter::getNumberOfDecimalPlaces() const {
-  return m_currency.numberOfDecimalPlaces();
+  return (int)m_currency.numberOfDecimalPlaces();
 }
 
 QString CurrencyAdapter::getCurrencyDisplayName() const {
