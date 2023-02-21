@@ -335,10 +335,9 @@ bool RpcServer::masternode_check_incoming_tx(const BinaryArray& tx_blob) {
 
 	CryptoNote::TransactionPrefix transaction = *static_cast<const TransactionPrefix*>(&tx);
 
+	/*
 	std::vector<uint32_t> out;
 	uint64_t amount;
-
-	/*
 	if (!CryptoNote::findOutputsToAccount(transaction, m_fee_acc, m_view_key, out, amount)) {
 		logger(INFO) << "Could not find outputs to masternode fee address";
 		return false;
