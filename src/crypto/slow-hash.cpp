@@ -65,7 +65,7 @@ namespace Crypto {
 
   cn_context::~cn_context() {
     if (!VirtualFree(data, 0, MEM_RELEASE)) {
-      throw bad_alloc();
+      //throw bad_alloc();
     }
   }
 
